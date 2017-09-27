@@ -1,4 +1,5 @@
 import express from 'express'
+import compression from 'compression'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import {StaticRouter} from 'react-router'
@@ -8,6 +9,7 @@ import webpackConfig from '../webpack.config.client'
 
 const compiler = webpack(webpackConfig)
 const app = express()
+app.use(compression())
 
 if (process.env.NODE_ENV === 'development') {
   app.use(require('webpack-dev-middleware')(compiler, {
@@ -18,7 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 
 app.set('views', './views')
 app.set('view engine', 'hbs')
-app.use(express.static('public'))
+app.use(express.static('public', { maxAge: '31d' }))
 
 app.get('*', (req, res) => {
   const context = {}
