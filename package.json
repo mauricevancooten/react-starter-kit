@@ -31,6 +31,7 @@
   "dependencies": {
     "autoprefixer": "^7.1.4",
     "babel-minify-webpack-plugin": "^0.2.0",
+    "compression": "^1.7.1",
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "hbs": "^4.0.1",
