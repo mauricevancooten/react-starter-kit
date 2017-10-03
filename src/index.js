@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 
 app.set('views', './views')
 app.set('view engine', 'hbs')
-app.use(express.static('public', { maxAge: '31d' }))
+app.use('/static', express.static('public', { maxAge: '31d' }))
 
 app.get('*', (req, res) => {
   const context = {}
