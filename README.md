@@ -1,6 +1,6 @@
 # React Starter Kit
 
-Universal JavaScript build with Express, React, React Router and Handlebars template.
+Universal JavaScript build with Express, React and React Router.
 
 Webpack to compile JavaScript, JSX and Sass.
 * ESLint to lint JavaScript
