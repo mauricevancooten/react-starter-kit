@@ -14,8 +14,8 @@ Webpack to compile JavaScript, JSX and Sass.
 1. Compile client: `npm run compile`
 1. Compile server: `npm run compile-server`
 1. Run production / development environment
-  * For production: `node server.js`
-  * For development: `npm run dev`
+    * For production: `node server.js`
+    * For development: `npm run dev`
 1. Visit: [http://localhost:3000](http://localhost:3000)
 
 In a live server environment you may only want to install dependencies.
