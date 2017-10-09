@@ -6,6 +6,7 @@ import {StaticRouter} from 'react-router'
 import Router from './components/router'
 import webpack from 'webpack'
 import webpackConfig from '../webpack.config.client'
+import Template from './components/template'
 
 const compiler = webpack(webpackConfig)
 const app = express()
@@ -18,8 +19,6 @@ if (process.env.NODE_ENV === 'development') {
   app.use(require('webpack-hot-middleware')(compiler))
 }
 
-app.set('views', './views')
-app.set('view engine', 'hbs')
 app.use('/static', express.static('public', { maxAge: '31d' }))
 
 app.get('*', (req, res) => {
@@ -30,7 +29,7 @@ app.get('*', (req, res) => {
       <Router/>
     </StaticRouter>
   )
-  res.render('index', { title: 'Site Name', content:`${html}`})
+  res.status(200).send(Template({html: html}))
 })
 
 app.listen(3000, () => {

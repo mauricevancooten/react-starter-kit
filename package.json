@@ -34,7 +34,6 @@
     "compression": "^1.7.1",
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
-    "hbs": "^4.0.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^4.2.0",
