@@ -32,9 +32,9 @@ Webpack HMR live reloads JavaScript and CSS in the browser.
 ### N.B.
 
 > To simplify the starter kit I haven't included an API intergration or meta titles and descriptions.
-
+>
 > For extending the starter kit to consume an API see this [data](https://github.com/mauricevancooten/react/tree/master/data) example.
-
+>
 > To extend the starter kit with meta titles and descriptions, see this [meta](https://github.com/mauricevancooten/react/tree/master/meta) example.
 
 ## Licence
