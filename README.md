@@ -1,6 +1,6 @@
 # React Starter Kit
 
-Universal JavaScript build with Express, React and React Router.
+Universal JavaScript build with Express, React and [React Router v4](https://reacttraining.com/react-router/).
 
 Webpack to compile JavaScript, JSX and Sass.
 * ESLint to lint JavaScript
@@ -28,6 +28,14 @@ Sass is compiled to autoprefixed and minified CSS. Javascript is linted and mini
 ### Development
 
 Webpack HMR live reloads JavaScript and CSS in the browser.
+
+### N.B.
+
+> To simplify the starter kit I haven't included an API intergration or meta titles and descriptions.
+
+> For extending the starter kit to consume an API see this [data](https://github.com/mauricevancooten/react/tree/master/data) example.
+
+> To extend the starter kit with meta titles and descriptions, see this [meta](https://github.com/mauricevancooten/react/tree/master/meta) example.
 
 ## Licence
 
