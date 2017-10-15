@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import {Route, Link} from 'react-router-dom'
+import {Route, Link, Switch} from 'react-router-dom'
 import About from './about'
+import NotFound from './not-found'
 
 class Router extends Component {
   render() {
@@ -10,17 +11,24 @@ class Router extends Component {
           <h1>Site Name</h1>
           <nav>
             <ul>
-              <li><Link to='/'>Home</Link></li>
-              <li><Link to='/about'>About</Link></li>
+              <li>
+                <Link to='/'>Home</Link>
+              </li>
+              <li>
+                <Link to='/about'>About</Link>
+              </li>
             </ul>
           </nav>
         </header>
         <div className='wrapper'>
           <div className='container'>
-            <Route exact path='/' render={() => <h1>Home</h1>}/>
-            <Route path='/about' component={About}/>
-          </div> {/* .container */}
-        </div> {/* .wrapper */}
+            <Switch>
+              <Route exact path='/' render={() => <h1>Home</h1>}/>
+              <Route path='/about' component={About}/>
+              <Route component={NotFound}/>
+            </Switch>
+          </div>
+        </div>
         <footer>
           <small>
             <a href='https://opensource.org/licenses/MIT'>MIT</a>
