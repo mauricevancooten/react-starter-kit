@@ -5,6 +5,7 @@ const MinifyPlugin = require('babel-minify-webpack-plugin')
 
 const extractSass = new ExtractTextPlugin({
   filename: 'css/styles.css',
+  allChunks: true,
   disable: process.env.NODE_ENV === 'development'
 })
 
@@ -27,18 +28,25 @@ const config = {
               loader: 'css-loader',
               options: {
                 minimize: true,
-                sourceMap: true
+                sourceMap: true,
+                modules: true,
+                localIdentName:'[name]__[local]___[hash:base64:5]',
               }
-            }, {
+            },
+            {
               loader: 'postcss-loader',
               options: {
                 plugins: [autoprefixer],
                 sourceMap: true
               }
-            }, {
+            },
+             {
               loader: 'sass-loader',
               options: {
-                sourceMap: true
+                sourceMap: true,
+                modules: true,
+                importLoaders:2,
+                localIdentName:'[name]__[local]___[hash:base64:5]',
               }
             }
           ],

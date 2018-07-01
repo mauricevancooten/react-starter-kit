@@ -1,5 +1,11 @@
 import React from 'react'
 
+let styles = '/static/css/styles.css'
+
+if (process.env.NODE_ENV === 'development') {
+  styles = '/'
+}
+
 const Template = ({html}) => {
   return (
   `<!DOCTYPE html>
@@ -8,7 +14,7 @@ const Template = ({html}) => {
       <meta charset="utf-8" />
       <title>Site Name</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" href="/static/css/styles.css" />
+      <link rel="stylesheet" href="${styles}" />
     </head>
     <body>
       <div id="content">${html}</div>
