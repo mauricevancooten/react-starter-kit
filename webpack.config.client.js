@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const MinifyPlugin = require('babel-minify-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const extractSass = new ExtractTextPlugin({
   filename: 'css/styles.css',
@@ -77,7 +77,7 @@ const config = {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  config.plugins.push(new MinifyPlugin())
+  config.plugins.push(new UglifyJsPlugin())
 }
 
 if (process.env.NODE_ENV === 'development') {
