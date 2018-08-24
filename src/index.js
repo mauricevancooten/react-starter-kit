@@ -5,7 +5,7 @@ import ReactDOMServer from 'react-dom/server'
 import {StaticRouter} from 'react-router'
 import Router from './components/router'
 import webpack from 'webpack'
-import webpackConfig from '../webpack.config.client'
+import webpackConfig from '../webpack.client'
 import Template from './components/template'
 
 const compiler = webpack(webpackConfig)
