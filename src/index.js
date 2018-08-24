@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(require('webpack-hot-middleware')(compiler))
 }
 
-app.use('/static', express.static('public', { maxAge: '31d' }))
+app.use('/', express.static('public', { maxAge: '31d' }))
 
 app.get('*', (req, res) => {
   const context = {}
@@ -31,9 +31,9 @@ app.get('*', (req, res) => {
   )
 
   if (context.status) {
-    res.status(404).send(Template({html: html}))
+    res.status(404).send(Template({html}))
   } else {
-    res.status(200).send(Template({html: html}))
+    res.status(200).send(Template({html}))
   }
 
 })

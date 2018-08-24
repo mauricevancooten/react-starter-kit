@@ -1,6 +1,6 @@
 import React from 'react'
 
-let styles = '/static/css/styles.css'
+let styles = '/css/styles.css'
 
 if (process.env.NODE_ENV === 'development') {
   styles = '/'
@@ -18,7 +18,7 @@ const Template = ({html}) => {
     </head>
     <body>
       <div id="content">${html}</div>
-      <script src="/static/js/bundle.js"></script>
+      <script src="/js/bundle.js"></script>
     </body>
   </html>`)
 }
