@@ -3,10 +3,10 @@ import compression from 'compression'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import {StaticRouter} from 'react-router'
-import Router from './components/router'
+import Router from './components/Router'
 import webpack from 'webpack'
 import webpackConfig from '../webpack.client'
-import Template from './components/template'
+import Template from './components/Template'
 
 const compiler = webpack(webpackConfig)
 const app = express()
