@@ -7,6 +7,9 @@ module.exports = {
     filename: 'server.js'
   },
   target: 'node',
+  optimization: {
+    nodeEnv: false
+  },
   module: {
     rules: [
       {
