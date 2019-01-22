@@ -1,13 +1,7 @@
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-
-const extractSass = new ExtractTextPlugin({
-  filename: 'css/styles.css',
-  allChunks: true,
-  disable: process.env.NODE_ENV === 'development'
-})
 
 const config = {
   entry: [
@@ -18,12 +12,17 @@ const config = {
     filename: 'js/bundle.js',
     publicPath: '/'
   },
+  optimization: {
+    nodeEnv: false
+  },
   module: {
     rules: [
       {
         test: /\.scss$/,
-        use: extractSass.extract({
           use: [
+            {
+              loader: process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader'
+            },
             {
               loader: 'css-loader',
               options: {
@@ -46,16 +45,16 @@ const config = {
                 sourceMap: true
               }
             }
-          ],
-          fallback: 'style-loader'
-        })
-      }, {
+          ]
+        }, 
+        {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
-          {
-            loader: 'eslint-loader'
-          }, {
+          // {
+          //   loader: 'eslint-loader'
+          // },
+           {
             loader: 'babel-loader'
           }
         ]
@@ -63,7 +62,6 @@ const config = {
     ]
   },
   plugins: [
-    extractSass,
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
@@ -75,6 +73,10 @@ const config = {
 
 if (process.env.NODE_ENV === 'production') {
   config.plugins.push(new UglifyJsPlugin())
+  config.plugins.push(new MiniCssExtractPlugin({
+    filename: "css/styles.css",
+    chunkFilename: "[id].css"
+  }))
 }
 
 if (process.env.NODE_ENV === 'development') {
