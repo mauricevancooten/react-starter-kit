@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import {BrowserRouter} from 'react-router-dom'
 import Router from './components/router'
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <BrowserRouter>
     <Router/>
   </BrowserRouter>,
