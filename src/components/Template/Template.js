@@ -1,5 +1,3 @@
-import React from 'react'
-
 let styles = '/css/styles.css'
 
 if (process.env.NODE_ENV === 'development') {
