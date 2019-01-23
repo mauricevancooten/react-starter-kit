@@ -4,7 +4,7 @@ Universal JavaScript build with Express, React v16, Webpack 4 and [React Router 
 
 Webpack to compile JavaScript, JSX and Sass.
 * ESLint to lint JavaScript
-* Babel Minify to compress JavaScript
+* Webpack minifies JavaScript
 * JavaScript compiles down to ES5, PostCSS and Autoprefixer compiles CSS for older browser compatibility
 * HMR for development
 
@@ -15,8 +15,8 @@ Webpack to compile JavaScript, JSX and Sass.
 1. Compile server: `npm run compile-server`
 1. Run production / development environment
     * For production: `node server.js`
-    * For development: `npm run dev` (comment out stylesheet link for HMR)
-1. Visit: [http://localhost:3000](http://localhost:3000)
+    * For development: `npm run dev`
+2. Visit: [http://localhost:3000](http://localhost:3000)
 
 In a live server environment you may only want to install dependencies.
 1. Install dependencies: `npm install --only=production`
