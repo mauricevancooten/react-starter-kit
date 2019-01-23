@@ -26,7 +26,7 @@ const config = {
             {
               loader: 'css-loader',
               options: {
-                minimize: true,
+                importLoaders: 2,
                 sourceMap: true,
                 modules: true,
                 localIdentName:'[name]__[local]___[hash:base64:5]',
@@ -51,9 +51,9 @@ const config = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
-          // {
-          //   loader: 'eslint-loader'
-          // },
+          {
+            loader: 'eslint-loader'
+          },
            {
             loader: 'babel-loader'
           }

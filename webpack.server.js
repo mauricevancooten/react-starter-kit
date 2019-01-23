@@ -1,4 +1,5 @@
 const nodeExternals = require('webpack-node-externals')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   entry: './src/index.js',
@@ -18,10 +19,18 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              minimize: true,
+              importLoaders: 2,
+              exportOnlyLocals: true,
               sourceMap: true,
               modules: true,
               localIdentName:'[name]__[local]___[hash:base64:5]',
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [autoprefixer],
+              sourceMap: true
             }
           },
           {
