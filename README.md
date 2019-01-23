@@ -1,6 +1,6 @@
 # React Starter Kit
 
-Universal JavaScript build with Express, React v16, Webpack 4 and [React Router v4](https://reacttraining.com/react-router/). Makes use of CSS Modules..
+Universal JavaScript build with Express, React v16, Webpack 4 and [React Router v4](https://reacttraining.com/react-router/). Makes use of CSS Modules.
 
 Webpack to compile JavaScript, JSX and Sass.
 * ESLint to lint JavaScript
