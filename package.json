@@ -33,7 +33,7 @@
   "scripts": {
     "compile": "webpack --config webpack.client.js",
     "compile-server": "webpack --config webpack.server.js",
-    "dev": "NODE_ENV='development' node server.js"
+    "dev": "NODE_ENV=development node server.js"
   },
   "dependencies": {
     "autoprefixer": "^9.4.6",
