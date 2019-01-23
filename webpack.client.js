@@ -1,27 +1,24 @@
 const webpack = require('webpack')
 const autoprefixer = require('autoprefixer')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+
+const devMode = process.env.NODE_ENV === 'development'
 
 const config = {
-  entry: [
-    './src/app.js', './src/sass/styles.scss'
-  ],
+  entry: ['./src/app.js', './src/sass/styles.scss'],
   output: {
     path: __dirname + '/public/',
     filename: 'js/bundle.js',
     publicPath: '/'
   },
-  optimization: {
-    nodeEnv: false
-  },
+  mode: process.env.NODE_ENV || 'production',
   module: {
     rules: [
       {
         test: /\.scss$/,
           use: [
             {
-              loader: process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader'
+              loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader
             },
             {
               loader: 'css-loader',
@@ -51,36 +48,21 @@ const config = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: [
-          {
-            loader: 'eslint-loader'
-          },
-           {
-            loader: 'babel-loader'
-          }
+          'eslint-loader',
+          'babel-loader'
         ]
       }
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-      }
-    })
+    new MiniCssExtractPlugin({
+      filename: "css/styles.css",
+      chunkFilename: "css/[id].css"
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
 
-if (process.env.NODE_ENV === 'production') {
-  config.plugins.push(new UglifyJsPlugin())
-  config.plugins.push(new MiniCssExtractPlugin({
-    filename: "css/styles.css",
-    chunkFilename: "[id].css"
-  }))
-}
-
-if (process.env.NODE_ENV === 'development') {
-  config.entry.push('webpack-hot-middleware/client')
-}
+devMode && config.entry.push('webpack-hot-middleware/client') 
 
 module.exports = config
