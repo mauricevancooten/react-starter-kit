@@ -17,9 +17,7 @@ const config = {
       {
         test: /\.scss$/,
           use: [
-            {
-              loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader
-            },
+            devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
               options: {
