@@ -11,6 +11,7 @@ module.exports = {
   optimization: {
     nodeEnv: false
   },
+  mode: process.env.NODE_ENV || 'production',
   module: {
     rules: [
       {
